@@ -1,0 +1,73 @@
+{
+    "title": "Word Associations",
+    "description": "The Word Associations Network API allows developers to embed the ability to find associations for a word or phrase into their mobile apps or web services. Words are grouped by semantics, meaning, and psychological perception. The Word Associations Network API currently supports English, French, Spanish, German, Italian, Portuguese, and Russian vocabulary. Please [register and subscribe](https://api.wordassociations.net/subscriptions/) to one of available tariff plans to get a valid API key.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/wordassociations.net/1.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.wordassociations.net/associations/v1.0",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "internalApiKey": {
+                "label": "apikey (internalApiKey)",
+                "viewClass": "TextFieldView",
+                "note": "API key. Please register and subscribe to one of available tariff plans to get a valid API key https://api.wordassociations.net/subscriptions/."
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "get_json_search": {
+            "main": "./lib/actions/get_json_search.js",
+            "title": "Gets associations with the given word or phrase.\n",
+            "description": "Gets associations with the given word or phrase.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_json_search.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_json_search": {
+            "main": "./lib/actions/post_json_search.js",
+            "title": "Gets associations with the given word or phrase.\n",
+            "description": "Gets associations with the given word or phrase.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_json_search.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
